@@ -22,6 +22,9 @@ function addLogToArray(operatorID, prevResult, enteredNumber, endResult) {
 }
 
 function calcResult(calcType) {
+  if (calcType !== 'Summ' && calcType !== 'subtract' && calcType !== 'Divide' && calcType !== 'Multi') {
+    return;
+  }
   const enteredNumber = getEnteredNumber();
   const initialResult = currentResult;
   let mathOperator;
@@ -31,7 +34,7 @@ function calcResult(calcType) {
   } else if (calcType === 'Subtract') {
     currentResult -= parseInt(userInput.value);
     mathOperator = '-';
-  } else if (calcType === 'Devide') {
+  } else if (calcType === 'Divide') {
     currentResult /= enteredNumber;
     mathOperator = '/';
   } else if (calcType === 'Multi') {
@@ -51,7 +54,7 @@ function substract() {
 }
 
 function devide() {
-  calcResult('Devide');
+  calcResult('Divide');
 }
 
 function multi() {
